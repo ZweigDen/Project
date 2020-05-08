@@ -1,0 +1,896 @@
+@charset "UTF-8";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+*, html, body {
+  box-sizing: border-box;
+}
+
+.wrap {
+  margin: 0 auto;
+}
+
+/*首頁logo與menu*/
+.menu {
+  background: #AA0601;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 88px;
+}
+.menu ul {
+  display: flex;
+}
+.menu li {
+  margin-left: 64px;
+}
+.menu li a {
+  text-decoration: none;
+  color: #FFFFFF;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+/*選單隱藏*/
+.showMenu {
+  display: none;
+}
+
+/*背景*/
+.headerImg {
+  background-image: url("https://github.com/hexschool/webLayoutTraining1st/blob/master/week3/banner.png?raw=true");
+  background-position: center center;
+  background-size: cover;
+  height: 840px;
+  text-align: right;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  /*讓內容向內推*/
+  padding-right: 18.75%;
+}
+.headerImg h2 {
+  font-size: 64px;
+  line-height: 96px;
+  color: #650300;
+}
+.headerImg p {
+  font-size: 36px;
+  line-height: 54px;
+  color: #650300;
+}
+
+@media (max-width: 768px) {
+  .menu {
+    padding: 30px 48px;
+  }
+  .menu li {
+    margin-left: 40px;
+  }
+
+  .headerImg {
+    background-image: url("https://github.com/hexschool/webLayoutTraining1st/blob/master/week3/banner-sm.png?raw=true");
+    padding-right: 6.25%;
+  }
+  .headerImg h2 {
+    font-size: 48px;
+    line-height: 72px;
+  }
+  .headerImg p {
+    font-size: 20px;
+    line-height: 30px;
+  }
+}
+@media (max-width: 375px) {
+  .menu {
+    /*讓隱藏選單定位*/
+    position: relative;
+    padding: 10px 0;
+    justify-content: center;
+  }
+  .menu ul {
+    /*隱藏選單開始*/
+    max-height: 0;
+    overflow: hidden;
+    /*隱藏選單結束*/
+    flex-direction: column;
+    transition: max-height 2.3s;
+    position: absolute;
+    z-index: 100;
+    top: 50px;
+    left: 0;
+    right: 0;
+    background: #AA0601;
+  }
+  .menu li {
+    border: 1px solid #fff;
+    text-align: center;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    margin-left: 0;
+  }
+
+  .topLogo img {
+    width: 48px;
+  }
+
+  /*讓選單出現*/
+  /*jQ點擊後動態在body加上class*/
+  .showMenu {
+    display: block;
+    position: absolute;
+    left: 16px;
+  }
+
+  .menu-show .menu ul {
+    max-height: 500px;
+  }
+
+  .headerImg {
+    height: 394px;
+  }
+  .headerImg h2 {
+    font-size: 32px;
+  }
+  .headerImg p {
+    font-size: 16px;
+  }
+}
+/*網頁內容*/
+/*用專業的新作專業的是*/
+.conTop {
+  background: #AA06010D;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 64px;
+  padding-bottom: 80px;
+}
+.conTop h2 {
+  font-size: 48px;
+  line-height: 72px;
+  color: #650300;
+  margin-bottom: 44px;
+}
+.conTop ul {
+  display: flex;
+  justify-content: center;
+}
+.conTop li {
+  max-width: 282px;
+  margin: 0 12px 0 12px;
+  padding: 16px 37px 0 37px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.conTop img {
+  margin-bottom: 40px;
+}
+.conTop h3 {
+  font-size: 24px;
+  line-height: 36px;
+  color: #650300;
+  margin-bottom: 4px;
+}
+.conTop p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+/*將價格li排到第一位*/
+.money {
+  order: -1;
+}
+
+/*眼鏡微調*/
+.glass.glass {
+  padding-top: 32px;
+}
+.glass.glass img {
+  margin-bottom: 54px;
+}
+
+@media (max-width: 768px) {
+  .conTop {
+    padding-top: 40px;
+    padding-bottom: 48px;
+  }
+  .conTop ul {
+    flex-wrap: wrap;
+  }
+  .conTop li {
+    margin-bottom: 12px;
+  }
+  .conTop img {
+    width: 80px;
+  }
+  .conTop h2 {
+    font-size: 32px;
+    line-height: 48px;
+  }
+  .conTop h3 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+
+  /*將價格li復位*/
+  .money {
+    order: 0;
+  }
+}
+@media (max-width: 375px) {
+  .conTop h2 {
+    font-size: 24px;
+    margin-bottom: 32px;
+  }
+  .conTop h2 img {
+    margin-bottom: 16px;
+  }
+  .conTop h2 li {
+    margin-bottom: 28px;
+  }
+
+  /*眼鏡微調*/
+  .glass.glass img {
+    margin-bottom: 27px;
+  }
+}
+/*經典系列*/
+.conMid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 64px;
+  padding-bottom: 48px;
+}
+.conMid li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 32px;
+}
+.conMid img {
+  display: block;
+}
+.conMid h2 {
+  font-size: 48px;
+  line-height: 72px;
+  color: #650300;
+  margin-bottom: 60px;
+}
+.conMid p {
+  font-size: 48px;
+  line-height: 72px;
+  color: #AA0601;
+}
+
+.logo {
+  display: flex;
+}
+.logo img {
+  margin-right: 8px;
+  margin-left: 24px;
+}
+
+/*隱藏白色logo*/
+.hide {
+  display: none;
+}
+
+/*order在左邊*/
+.sunGlass {
+  order: -1;
+  margin-right: 24px;
+}
+
+@media (max-width: 768px) {
+  .conMid {
+    padding-top: 40px;
+    padding-bottom: 32px;
+  }
+  .conMid li {
+    margin-bottom: 8px;
+  }
+  .conMid h2 {
+    font-size: 28px;
+    line-height: 42px;
+  }
+  .conMid p {
+    font-size: 28px;
+    line-height: 42px;
+  }
+  .conMid img {
+    width: 410px;
+  }
+
+  .logo img {
+    width: 32px;
+  }
+
+  .daimond {
+    margin-left: 40px;
+  }
+
+  /*太陽歸位*/
+  .sunGlass {
+    order: 0;
+  }
+}
+@media (max-width: 375px) {
+  .conMid {
+    padding-top: 24px;
+    padding-bottom: 16px;
+  }
+  .conMid img {
+    width: 352px;
+  }
+  .conMid h2 {
+    font-size: 24px;
+    line-height: 48px;
+    margin-bottom: 16px;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  .conMid li {
+    position: relative;
+  }
+
+  /*將選單圖示打開*/
+  .hide {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+  }
+  .hide p {
+    color: #fff;
+    font-size: 28px;
+    line-height: 42px;
+  }
+
+  .dai {
+    left: 99px;
+  }
+  .dai img {
+    width: 32px;
+    margin-right: 8px;
+  }
+
+  .sun {
+    left: 69.5px;
+  }
+  .sun img {
+    width: 32px;
+    margin-right: 8px;
+  }
+
+  .thund {
+    left: 77px;
+  }
+  .thund img {
+    width: 23px;
+    margin-right: 8px;
+  }
+}
+/*聯名設計*/
+.conDown {
+  background-image: url("https://github.com/hexschool/webLayoutTraining1st/blob/master/week3/bg.png?raw=true");
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 64px;
+}
+.conDown img {
+  display: block;
+}
+.conDown h2 {
+  font-size: 48px;
+  line-height: 72px;
+  color: #fff;
+  margin-bottom: 60px;
+}
+
+.box1 {
+  display: flex;
+  margin-bottom: 60px;
+}
+
+.box2 {
+  display: flex;
+  flex-direction: column;
+  margin-left: 8px;
+}
+
+.box3 {
+  display: flex;
+  margin-top: 8px;
+}
+
+.box4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  display: block;
+  margin-left: 8px;
+}
+
+.box5 {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  right: 83px;
+  margin-top: 8px;
+}
+
+.box6 {
+  background-color: #fff;
+  display: flex;
+  font-size: 72px;
+  line-height: 108px;
+  color: #AA0601;
+  padding-left: 12px;
+  padding-right: 14px;
+  position: absolute;
+  top: 32px;
+  right: -83px;
+}
+.box6 img {
+  margin-left: 17px;
+}
+
+.glass2 {
+  display: flex;
+  margin-bottom: 144px;
+}
+.glass2 p {
+  color: #AA0601;
+  font-size: 72px;
+  line-height: 108px;
+  position: absolute;
+  z-index: 1;
+}
+.glass2 li {
+  margin: 0 15px;
+  background: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.glass2 li img {
+  opacity: 0.5;
+}
+
+@media (max-width: 768px) {
+  .box1 {
+    max-width: 672px;
+  }
+
+  .w251 {
+    max-width: 251px;
+  }
+
+  .box6 h3 {
+    font-size: 26px;
+    line-height: 20px;
+  }
+
+  .glass2 p {
+    font-size: 32px;
+    line-height: 25px;
+  }
+}
+@media (max-width: 375px) {
+  .glass2 {
+    flex-wrap: wrap;
+  }
+  .glass2 p {
+    font-size: 32px;
+    line-height: 25px;
+  }
+  .glass2 li {
+    margin-bottom: 20px;
+  }
+
+  .w251 {
+    max-width: 156px;
+  }
+}
+/*顧客推薦*/
+.customer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.customer img {
+  margin-bottom: 16px;
+}
+.customer ul {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+.customer li {
+  max-width: 282px;
+  margin: 0 12px;
+  background-color: #fff;
+  border: 1px solid #DEE2E6;
+}
+.customer h3 {
+  font-size: 16px;
+  line-height: 21px;
+  margin-bottom: 16px;
+  padding-left: 16px;
+}
+.customer p {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 16px;
+  padding-left: 16px;
+}
+
+.gray {
+  color: #707070;
+}
+
+@media (max-width: 768px) {
+  .customer {
+    font-size: 32px;
+    line-height: 48px;
+    margin-bottom: 32px;
+  }
+  .customer ul {
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .customer li {
+    margin-bottom: 24px;
+  }
+}
+/*聯絡我們*/
+.connection {
+  background-color: #AA06010D;
+  padding-top: 64px;
+  padding-bottom: 92px;
+}
+
+.form {
+  margin: 0 auto;
+  max-width: 792px;
+}
+.form h2 {
+  font-size: 48px;
+  line-height: 72px;
+  text-align: center;
+  margin-bottom: 24px;
+}
+.form p {
+  font-size: 20px;
+  line-height: 30px;
+  margin-bottom: 20px;
+}
+.form h3 {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 4px;
+}
+.form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.input {
+  margin-bottom: 16px;
+  height: 50px;
+}
+
+.floatBox {
+  display: flex;
+}
+
+.checkbox {
+  margin-bottom: 42px;
+}
+
+.textarea {
+  height: 136px;
+  margin-bottom: 16px;
+}
+
+.submit {
+  background-color: #AA0601;
+  color: #fff;
+  font-size: 16px;
+  line-height: 24px;
+  width: 180px;
+  height: 54px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .connection {
+    padding-top: 40px;
+    padding-bottom: 56px;
+  }
+
+  .form {
+    max-width: 496px;
+  }
+  .form h2 {
+    font-size: 32px;
+    line-height: 48px;
+    margin-bottom: 16px;
+  }
+  .form p {
+    font-size: 16px;
+    line-height: 24px;
+    margin-bottom: 16px;
+  }
+
+  .submit {
+    width: 136px;
+    height: 36px;
+  }
+}
+@media (max-width: 375px) {
+  .connection {
+    padding-top: 24px;
+    padding-bottom: 48px;
+  }
+
+  .form {
+    max-width: 327px;
+  }
+  .form h2 {
+    font-size: 20px;
+    margin-bottom: 8px;
+  }
+
+  .input {
+    height: 36px;
+  }
+
+  .textarea {
+    height: 100px;
+  }
+
+  .checkbox h3 {
+    font-size: 14px;
+  }
+}
+/*footer*/
+.footer {
+  background-color: #AA0601;
+  padding-top: 36px;
+  padding-bottom: 27px;
+}
+
+.footerContent {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.footerMenu {
+  display: flex;
+  justify-content: space-between;
+}
+.footerMenu ul {
+  display: flex;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.menuLeft a {
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+  text-decoration: none;
+}
+
+/*左邊li右推*/
+.menuLeft li {
+  margin-right: 48px;
+}
+
+/*右邊logo右推*/
+.menuRight li {
+  margin-left: 32px;
+}
+
+.phoneMail {
+  font-size: 36px;
+  line-height: 54px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+.phoneMail li {
+  display: flex;
+  margin-bottom: 16px;
+}
+.phoneMail img {
+  margin-right: 12px;
+}
+
+/*最底部*/
+.copyright {
+  padding-top: 24px;
+  border-top: 1px solid #fff;
+  display: flex;
+  justify-content: space-between;
+}
+.copyright ul {
+  display: flex;
+  align-items: center;
+}
+.copyright li {
+  font-size: 16px;
+  line-height: 24px;
+  color: #fff;
+}
+.copyright img {
+  margin-right: 38px;
+}
+.copyright a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.privacy li {
+  margin-left: 62px;
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  .footerContent {
+    max-width: 672px;
+  }
+
+  .menuLeft li {
+    margin-right: 40px;
+  }
+
+  .menuRight li {
+    margin-left: 24px;
+  }
+
+  .menuRight img {
+    width: 24px;
+  }
+
+  .phoneMail {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .phoneMail img {
+    width: 32px;
+  }
+
+  /*隱藏logog*/
+  .logoHide {
+    display: none;
+  }
+}
+@media (max-width: 375px) {
+  .footer {
+    padding-top: 24px;
+    padding-bottom: 20px;
+  }
+
+  .footerContent {
+    max-width: 351px;
+  }
+
+  /*隱藏選單*/
+  .menuHide.menuHide {
+    display: none;
+  }
+
+  /*將fb連結定位在右方*/
+  .footerMenu {
+    position: relative;
+  }
+
+  .menuRight {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .phoneMail img {
+    width: 20px;
+  }
+
+  .copyright {
+    flex-direction: column;
+    position: relative;
+  }
+  .copyright img {
+    margin-right: 0;
+  }
+
+  .privacy.privacy {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .privacy li {
+    margin-left: 0;
+  }
+
+  /*打開375pxlogo*/
+  .logoHide {
+    display: block;
+    width: 46px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+}
